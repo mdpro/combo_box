@@ -82,7 +82,7 @@ module ComboBox
         item_controller ||= controller.controller_name
         method_name = "item_label_for_#{item_action}_in_#{item_controller}".to_sym
         unless ComboBox::CompiledLabels.respond_to?(method_name)
-          needed_controller = "#{item_controller.to_s.classify.pluralize}Controller"
+          needed_controller = "#{item_controller.capitalize}Controller"
           needed_controller.constantize
           # require "#{item_controller}_controller"
           unless ComboBox::CompiledLabels.respond_to?(method_name)
